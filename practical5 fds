@@ -1,0 +1,39 @@
+#practical 5
+str=input("Enter Any String:")
+ch=input("Enter Any Charcter:")
+sub_st=input("Enter Any Sub_string:")
+new=str.split()
+count=0
+#to count the length of string
+for i in str:
+    count+=1
+print("length Of String=",count)
+#to find the max word and its length
+c=max(str.split(),key=len)
+print("max word is:",c,"with length:",len(c))
+#to check whether palindrome or not
+for i in range(0,int(len(ch)/2)):
+    if ch[i]!= ch[len(ch)-i-1]:
+        print("given word Is not Palindrome")
+        break
+    else:
+        print("given word is palindrome")
+        break
+#to check frequency
+all_frequ={}
+for i in str:
+    if i in all_frequ:
+        all_frequ[i]+=1
+    else:
+        all_frequ[i]=1
+print("frequency of each word:",all_frequ)
+#to find the first appearence of sub string
+print("index of first appearence of string is:",str.find(sub_st))
+#to check frequency of each word in string
+str=str.split()
+str2=[]
+for i in str:
+    if i not in str2:
+        str2.append(i)
+for i in range(0, len(str2)):
+    print('count of frequency', str2[i], 'is :', str.count(str2[i]))        

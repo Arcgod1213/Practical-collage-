@@ -1,0 +1,64 @@
+'''
+This program is created by Aryan Mane
+
+Experiment No. 9 : Write a Python Program to compute following computation on matrices :
+                   a)Addition of two matrices
+                   b)Subtraction of two matrices
+                   c)Multiplication of two matrices
+                   d)Transpose of a matix
+'''
+
+#taking input from user
+def matrix():
+    r= int(input("Enter the number of rows:"))
+    c= int(input("Enter the number of columns:"))
+  
+
+#Initialising The MatA and matB
+    mata=[]
+    print("Enter The element Rowise:")
+
+#for enteries in rowise
+    for i in range(r):
+        b=[]
+        for j in range (c):
+            b.append(int(input()))
+        mata.append(b)
+#for print matrix
+    for i in range (r):
+        for j in range (c):
+            print(mata[i][j],end=" ")
+        print()
+    return mata
+
+
+
+x=matrix()
+y=matrix()
+
+print("Add is:\n")
+result = [[x[i][j] + y[i][j]  for j in range(len(x[0]))] for i in range(len(x))]
+
+for r in result:
+   print(r)
+
+print("Sub is:\n")
+result = [[x[i][j] - y[i][j]  for j in range(len(x[0]))] for i in range(len(x))]
+
+for r in result:
+   print(r)
+
+print("Mult is:\n")
+result = [[x[i][j] * y[i][j]  for j in range(len(x[0]))] for i in range(len(x))]
+
+for r in result:
+   print(r)
+
+print("trans is:\n")
+for i in range(len(x)):
+   # iterate through columns
+   for j in range(len(x[0])):
+       result[j][i] = x[i][j]
+
+for r in result:
+   print(r)  

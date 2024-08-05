@@ -1,0 +1,58 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<stdio.h>
+#include<graphics.h>
+#include<math.h>
+using namespace std; 
+
+int round(float n)
+{
+	if(n - (int)n<0.5)
+	   return(int)n;
+	return (int)(n+1);
+}
+void DDALine(int x0 , int y0 , int x1, int y1)
+{
+	int dx = x1 - x0; 
+    int dy = y1 - y0;
+	
+	int step;
+	
+	if( abs(dx)> abs(dy))
+	{
+		step=abs(dx);
+	} 
+	else
+	{
+		step=abs(dy);
+	}
+	
+	float x_incr=(float) dx / step;
+	float y_incr=(float) dy / step;
+	
+	float x = x0; 
+    float y = y0; 
+	
+	for(int i=0 ; i <= step ; i++)
+	{
+    putpixel(round(x),round(y),GREEN);
+    x+= x_incr;
+	y+= y_incr;
+	delay(10);
+	}
+		
+}
+
+
+int main()
+{
+	int gd= DETECT,gm;
+	initgraph(&gd,&gm,"");
+	
+	int x0=200, y0=250,x1=300,y1=400 ;
+	
+	DDALine(200,250,300,400);
+	
+	getch();
+    return 0;
+}

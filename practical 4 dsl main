@@ -1,0 +1,29 @@
+balance =0
+def deposit(d_amount):
+    global balance
+    balance += d_amount
+    print("\n Amount Deposited:",d_amount)
+
+def withdraw(w_amount):
+    global balance
+    if balance>=w_amount:
+        balance-=w_amount
+        print("\n You Withdrew:", w_amount)
+    else:
+        print("\n Insufficient balance  ")
+while True:
+    data = input("Please enter the transaction details:")
+    if ('Exit' == data):
+        break
+    if (data == 'D'):
+        b=float(input("Enter Amount To Be Deposited:"))
+        deposit(b)
+    if (data == 'W'):
+        u=float(input("Enter Amount To Be withdraw:"))
+        withdraw(u)
+    print("Do You Want To Print This Input[y/n]:")
+    x=input()
+    if x=="y":
+        True
+    if x=="n":
+        break

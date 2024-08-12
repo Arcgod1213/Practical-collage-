@@ -1,0 +1,86 @@
+//Write C++ program to draw the line styles using DDA and Bresenham‘s algorithm (solid,
+//dotted, dashed, dash dot and thick). Inherit pixel class and Use Constructors.
+
+// C++ program for DDA line generation 
+#include<graphics.h>
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int round(float n) 
+{ 
+	if (n - (int)n < 0.5) 
+		return (int)n; 
+	return (int)(n + 1); 
+} 
+
+void DDALine(int x0, int y0, int x1, int y1) 
+{ 
+	int dx = x1 - x0; 
+	int dy = y1 - y0; 
+
+	int step; 
+
+	
+	if (abs(dx) > abs(dy)) 
+		step = abs(dx); 
+	else
+		step = abs(dy); 
+
+	float x_incr = (float)dx / step; 
+	float y_incr = (float)dy / step; 
+
+	float x = x0; 
+	float y = y0; 
+
+	for (int i = 0; i < step; i++) { 
+
+		putpixel(round(x), round(y), YELLOW); 
+		cout << round(x) << " " << round(y) << "\n"; 
+		x += x_incr; 
+		y += y_incr; 
+		delay(10); 
+	} 
+} 
+
+void bresenham(int x0,int y0,int x1,int y1){
+
+	
+	int xi,yi,pi;
+	xi=x0;
+	yi=y0;
+	int cx = x1 - x0; 
+	int cy = y1 - y0; 
+	int p;
+	p=2*cy-cx;
+	for(int i=1;i<=cx;i++){
+	
+	if (p>=0){
+		xi+=1;
+		yi+=1;
+		pi=p+2*cy-2*cx;
+	}
+	else{
+		xi+=1;
+		yi=yi;
+		pi=p+2*cy;
+	}
+	putpixel(xi, yi, YELLOW); 
+	delay(10);
+
+}
+
+	
+}
+int main() 
+{ 
+	int gd=DETECT, gm;
+	initgraph(&gd,&gm,"");
+
+	DDALine(100,100,500,500); 
+	bresenham(20,20,60,60);
+	getch();
+	closegraph();
+
+	return 0; 
+} 
+
